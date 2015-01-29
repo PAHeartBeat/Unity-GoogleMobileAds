@@ -9,7 +9,6 @@ Test Google Ads for Unity3D
 * Please Check `ChangeLog.md` and `UserGuide.md`
 
 ##Test On
-=========
 ###iOS
 - Unity3D 4.6.1p4
 - XCode: 6.1.1
