@@ -7,9 +7,7 @@ Android: API v21 Playservices Rev. 22
 Current Package: v1.1
 
 ##Guide
-=========
 ###iOS
-------
 1. Export XCode Folder from Unity3D
 2. Open Project in XCode
 3. Right Click on Unity-iPhone in XCode "Project Navigator"
@@ -48,6 +46,5 @@ Unity-iPhone in XCode "Project Navigator" and expand `Libraries` folder
 Wowww... it's done and you can check it with your iOS Device (I not tested it in simulator)
 
 ###Andorid
-----------
 - Just Build Project and export it to APK it's ready to run project and tested as per `README.md`
 
