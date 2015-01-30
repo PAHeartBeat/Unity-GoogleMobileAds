@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{82E30225-D303-4DF4-4108-509E7F388D08}") = "GoogleAdsUnity", "Assembly-CSharp-firstpass.csproj", "{FB9EC887-5E43-4E5C-CC51-3A708D6CEFAA}"
 EndProject
+Project("{82E30225-D303-4DF4-4108-509E7F388D08}") = "GoogleAdsUnity", "Assembly-CSharp.csproj", "{1788825F-F762-B9B5-03E4-6B98268B9591}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{FB9EC887-5E43-4E5C-CC51-3A708D6CEFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB9EC887-5E43-4E5C-CC51-3A708D6CEFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB9EC887-5E43-4E5C-CC51-3A708D6CEFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1788825F-F762-B9B5-03E4-6B98268B9591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1788825F-F762-B9B5-03E4-6B98268B9591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1788825F-F762-B9B5-03E4-6B98268B9591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1788825F-F762-B9B5-03E4-6B98268B9591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																															GlobalSection(MonoDevelopProperties) = preSolution
+																																									GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.TextStylePolicy = $1
 		$1.FileWidth = 120

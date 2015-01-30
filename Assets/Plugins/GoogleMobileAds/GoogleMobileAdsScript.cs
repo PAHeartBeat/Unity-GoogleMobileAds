@@ -11,20 +11,6 @@ using GoogleMobileAds.Api;
  * 
 */
 
-//Here I added few test adUnitIds for iOS Test
-// ca-app-pub-6569756320106809/4839131600	Banner Ad - Text / Image
-//
-// ca-app-pub-6569756320106809/7792598009	Interstitial Ad - Text
-// ca-app-pub-6569756320106809/9269331204	Interstitial Ad - Image
-// ca-app-pub-6569756320106809/1746064404	Interstitial Ad - Video
-
-//Here I added few test adUnitIds for Android Test
-// ca-app-pub-6569756320106809/4263722000	Banner Ad - Text / Image
-//
-// ca-app-pub-6569756320106809/7217188402	Interstitial Ad - Text
-// ca-app-pub-6569756320106809/5740455203	Interstitial Ad - Image
-// ca-app-pub-6569756320106809/8693921603	Interstitial Ad - Video
-
 public class GoogleMobileAdsScript : MonoBehaviour {
 	#region Singleton settings
 
@@ -43,19 +29,19 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 
 	#region Events
 
-	public static Action<string> BannerAdLoaded;
-	public static Action<string,string> BannerAdFailedToLoad;
-	public static Action<string> BannerAdOpened;
-	public static Action<string> BannerAdClosing;
-	public static Action<string> BannerAdClosed;
-	public static Action<string> BannerAdLeftApplication;
+	public Action<string> BannerAdLoaded;
+	public Action<string,string> BannerAdFailedToLoad;
+	public Action<string> BannerAdOpened;
+	public Action<string> BannerAdClosing;
+	public Action<string> BannerAdClosed;
+	public Action<string> BannerAdLeftApplication;
 
-	public static Action<string> InterstitialLoaded;
-	public static Action<string,string> InterstitialFailedToLoad;
-	public static Action<string> InterstitialOpened;
-	public static Action<string> InterstitialClosing;
-	public static Action<string> InterstitialClosed;
-	public static Action<string> InterstitialLeftApplication;
+	public Action<string> InterstitialLoaded;
+	public Action<string,string> InterstitialFailedToLoad;
+	public Action<string> InterstitialOpened;
+	public Action<string> InterstitialClosing;
+	public Action<string> InterstitialClosed;
+	public Action<string> InterstitialLeftApplication;
 
 	#endregion
 
@@ -89,90 +75,6 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 			}
 		}
 	
-	}
-	void OnGUI() {
-		#if TESTMODE_GOOGLEADS
-		// Puts some basic buttons onto the screen.
-		GUI.skin.button.fontSize = (int)(0.03f * Screen.height);
-		Rect showBannerRect = new Rect(0.1f * Screen.width, 0.15f * Screen.height,
-			                      0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(showBannerRect, "Show Banner")) {
-			#if UNITY_IOS
-			ShowBanner("ca-app-pub-6569756320106809/4839131600");
-			#elif UNITY_ANDROID
-			ShowBanner("ca-app-pub-6569756320106809/4263722000");
-			#endif
-		}
-
-		Rect hideBannerRect = new Rect(0.1f * Screen.width, 0.25f * Screen.height,
-			                      0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(hideBannerRect, "Hide Banner")) {
-			HideBanner();
-		}
-
-
-
-		Rect requestInterstitialRect = new Rect(0.1f * Screen.width, 0.40f * Screen.height,
-			                               0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(requestInterstitialRect, "Request Interstitial 1 - Text")) {
-			#if UNITY_IOS
-			RequestInterstitial("ca-app-pub-6569756320106809/7792598009");
-			#elif UNITY_ANDROID
-			RequestInterstitial("ca-app-pub-6569756320106809/7217188402");
-			#endif
-		}
-
-		Rect showInterstitialRect = new Rect(0.1f * Screen.width, 0.49f * Screen.height,
-			                            0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(showInterstitialRect, "Show Interstitial 1 - Text")) {
-			#if UNITY_IOS
-			ShowInterstitial("ca-app-pub-6569756320106809/7792598009");
-			#elif UNITY_ANDROID
-			ShowInterstitial("ca-app-pub-6569756320106809/7217188402");
-			#endif
-		}
-
-		Rect requestInterstitialRect1 = new Rect(0.1f * Screen.width, 0.58f * Screen.height,
-			                                0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(requestInterstitialRect1, "Request Interstitial 2 - Image")) {
-			#if UNITY_IOS
-			RequestInterstitial("ca-app-pub-6569756320106809/9269331204");
-			#elif UNITY_ANDROID
-			RequestInterstitial("ca-app-pub-6569756320106809/5740455203");
-			#endif
-		}
-
-		Rect showInterstitialRect1 = new Rect(0.1f * Screen.width, 0.67f * Screen.height,
-			                             0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(showInterstitialRect1, "Show Interstitial 2 - Image")) {
-			#if UNITY_IOS
-			ShowInterstitial("ca-app-pub-6569756320106809/9269331204");
-			#elif UNITY_ANDROID
-			ShowInterstitial("ca-app-pub-6569756320106809/5740455203");
-			#endif
-		}
-
-		Rect requestInterstitialRect2 = new Rect(0.1f * Screen.width, 0.76f * Screen.height,
-			                                0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(requestInterstitialRect2, "Request Interstitial 3 - Video")) {
-			#if UNITY_IOS
-			RequestInterstitial("ca-app-pub-6569756320106809/1746064404");
-			#elif UNITY_ANDROID
-			RequestInterstitial("ca-app-pub-6569756320106809/8693921603");
-			#endif
-		}
-
-		Rect showInterstitialRect2 = new Rect(0.1f * Screen.width, 0.85f * Screen.height,
-			                             0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(showInterstitialRect2, "Show Interstitial 3 - Video")) {
-			#if UNITY_IOS
-			ShowInterstitial("ca-app-pub-6569756320106809/1746064404");
-			#elif UNITY_ANDROID
-			ShowInterstitial("ca-app-pub-6569756320106809/8693921603");
-			#endif
-		}
-
-		#endif
 	}
 
 	#endregion
@@ -223,10 +125,16 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 	//
 	public void ShowBanner(string adUnitId, AdPosition position = AdPosition.Bottom) {
 		if(string.IsNullOrEmpty(adUnitId)) {
-			Debug.LogWarning("Empty Ad Unit ID not Allowed...");
+			MyDebug.LogWarning("GoogleMobileAdsScript::ShowBanner => Empty adUnitId not Allowed...");
+			if(BannerAdFailedToLoad != null) {
+				BannerAdFailedToLoad.Invoke(adUnitId, ErrorCode.Empty_adUnitId + " - ");
+			}
 			return;
 		}
 		if(!bannerViews.ContainsKey(adUnitId)) {
+			if(BannerAdFailedToLoad != null) {
+				BannerAdFailedToLoad.Invoke(adUnitId, ErrorCode.NotRequested + " - ");
+			}
 			RequestBanner(adUnitId, position);
 		} else {
 			bannerViews[adUnitId].Show();
@@ -264,8 +172,7 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 	public bool IsInterstitialReady(string adUnitId) {
 		// Create an interstitial.
 		if(!interstitialAdViews.ContainsKey(adUnitId)) {
-			Debug.Log("Ad Unit not requested yet, it's requested now try after some time to check again");
-			RequestInterstitial(adUnitId);
+			MyDebug.LogWarning("GoogleMobileAdsScript::IsInterstitialReady => adUnitId not requested yet");
 			return false;
 		} else {
 			return interstitialAdViews[adUnitId].IsLoaded();
@@ -273,15 +180,24 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 	}
 	public void ShowInterstitial(string adUnitId) {
 		if(string.IsNullOrEmpty(adUnitId)) {
-			Debug.LogWarning("Empty Ad Unit ID not Allowed...");
+			MyDebug.LogWarning("GoogleMobileAdsScript::ShowInterstitial => Empty adUnitId not Allowed...");
+			if(InterstitialFailedToLoad != null) {
+				InterstitialFailedToLoad.Invoke(adUnitId, ErrorCode.Empty_adUnitId + " - ");
+			}
 			return;
 		}
 		if(!interstitialAdViews.ContainsKey(adUnitId)) {
-			Debug.LogWarning("Intestitial Cache not requeste yet for Ad Unity Id, Please request first");
+			MyDebug.LogWarning("GoogleMobileAdsScript::ShowInterstitial => adUnitId not requested yet");
+			if(InterstitialFailedToLoad != null) {
+				InterstitialFailedToLoad.Invoke(adUnitId, ErrorCode.NotRequested + " - ");
+			}
 		} else if(interstitialAdViews[adUnitId].IsLoaded()) {
 			interstitialAdViews[adUnitId].Show();
 		} else {
-			Debug.LogWarning("Intestitial is not downloaded yet, please wait");
+			if(InterstitialFailedToLoad != null) {
+				InterstitialFailedToLoad.Invoke(adUnitId, ErrorCode.Downloaing + " - ");
+			}
+			MyDebug.LogWarning("GoogleMobileAdsScript::ShowInterstitial => adUnitId not downloaded yet, please yet");
 		}
 	}
 	//
@@ -291,7 +207,7 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 
 	private void HandleAdLoaded(object sender, EventArgs args) {
 		banner = (BannerView)sender;
-		Debug.Log("HandleAdLoaded event received. " + banner.AdUnityID);
+		MyDebug.Log("GoogleMobileAdsScript::HandleAdLoaded => " + banner.AdUnityID);
 		if(BannerAdLoaded != null) {
 			BannerAdLoaded.Invoke(banner.AdUnityID);
 		}
@@ -299,15 +215,15 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 
 	private void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args) {
 		banner = (BannerView)sender;
-		Debug.Log("HandleFailedToReceiveAd event received with message: " + args.Message);
+		MyDebug.Log("GoogleMobileAdsScript::HandleAdFailedToLoad => " + banner.AdUnityID + " - Message: " + args.Message);
 		if(BannerAdFailedToLoad != null) {
-			BannerAdFailedToLoad.Invoke(banner.AdUnityID, args.Message);
+			BannerAdFailedToLoad.Invoke(banner.AdUnityID, ErrorCode.NotRequested + " - " + args.Message);
 		}
 	}
 
 	private void HandleAdOpened(object sender, EventArgs args) {
 		banner = (BannerView)sender;
-		Debug.Log("HandleAdOpened event received " + banner.AdUnityID);
+		MyDebug.Log("GoogleMobileAdsScript::HandleAdOpened => " + banner.AdUnityID);
 		if(BannerAdOpened != null) {
 			BannerAdOpened.Invoke(banner.AdUnityID);
 		}
@@ -315,7 +231,7 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 
 	private void HandleAdClosing(object sender, EventArgs args) {
 		banner = (BannerView)sender;
-		Debug.Log("HandleAdClosing event received " + banner.AdUnityID);
+		MyDebug.Log("GoogleMobileAdsScript::HandleAdClosing => " + banner.AdUnityID);
 		if(BannerAdClosing != null) {
 			BannerAdClosing.Invoke(banner.AdUnityID);
 		}
@@ -323,7 +239,7 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 
 	private void HandleAdClosed(object sender, EventArgs args) {
 		banner = (BannerView)sender;
-		Debug.Log("HandleAdClosed event received " + banner.AdUnityID);
+		MyDebug.Log("GoogleMobileAdsScript::GoogleMobileAdsScript => " + banner.AdUnityID);
 		bannerViews.Remove(banner.AdUnityID);
 		if(BannerAdClosed != null) {
 			BannerAdClosed.Invoke(banner.AdUnityID);
@@ -332,7 +248,7 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 
 	private void HandleAdLeftApplication(object sender, EventArgs args) {
 		banner = (BannerView)sender;
-		Debug.Log("HandleAdLeftApplication event received " + banner.AdUnityID);
+		MyDebug.Log("GoogleMobileAdsScript::HandleAdLeftApplication => " + banner.AdUnityID);
 		if(BannerAdLeftApplication != null) {
 			BannerAdLeftApplication.Invoke(banner.AdUnityID);
 		}
@@ -346,7 +262,7 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 
 	private void HandleInterstitialLoaded(object sender, EventArgs args) {
 		interstitial = (InterstitialAd)sender;
-		Debug.Log("HandleInterstitialLoaded event received. " + interstitial.AdUnityID);
+		MyDebug.Log("GoogleMobileAdsScript::HandleInterstitialLoaded => " + interstitial.AdUnityID);
 		if(InterstitialLoaded != null) {
 			InterstitialLoaded.Invoke(interstitial.AdUnityID);
 		}
@@ -354,21 +270,22 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 	}
 	private void HandleInterstitialFailedToLoad(object sender, AdFailedToLoadEventArgs args) {
 		interstitial = (InterstitialAd)sender;
-		Debug.Log("HandleInterstitialFailedToLoad event received with message: " + args.Message);
+		MyDebug.Log("GoogleMobileAdsScript::HandleInterstitialFailedToLoad => " + interstitial.AdUnityID +
+		" - Message: " + args.Message);
 		if(InterstitialFailedToLoad != null) {
-			InterstitialFailedToLoad.Invoke(interstitial.AdUnityID, args.Message);
+			InterstitialFailedToLoad.Invoke(interstitial.AdUnityID, ErrorCode.NotRequested + " - " + args.Message);
 		}
 	}
 	private void HandleInterstitialOpened(object sender, EventArgs args) {
 		interstitial = (InterstitialAd)sender;
-		Debug.Log("HandleInterstitialOpened event received " + interstitial.AdUnityID);
+		MyDebug.Log("GoogleMobileAdsScript::HandleInterstitialOpened =>" + interstitial.AdUnityID);
 		if(InterstitialOpened != null) {
 			InterstitialOpened.Invoke(interstitial.AdUnityID);
 		}
 	}
 	private void HandleInterstitialClosing(object sender, EventArgs args) {
 		interstitial = (InterstitialAd)sender;
-		Debug.Log("HandleInterstitialClosing event received " + interstitial.AdUnityID);
+		MyDebug.Log("GoogleMobileAdsScript::HandleInterstitialClosing =>" + interstitial.AdUnityID);
 		if(InterstitialClosing != null) {
 			InterstitialClosing.Invoke(interstitial.AdUnityID);
 		}
@@ -376,7 +293,7 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 	private void HandleInterstitialClosed(object sender, EventArgs args) {
 		interstitial = (InterstitialAd)sender;
 		interstitialAdId = interstitial.AdUnityID;
-		Debug.Log("HandleInterstitialClosed event received " + interstitialAdId);
+		MyDebug.Log("GoogleMobileAdsScript::HandleInterstitialClosed =>" + interstitialAdId);
 		if(InterstitialClosed != null) {
 			InterstitialClosed.Invoke(interstitial.AdUnityID);
 		}
@@ -385,11 +302,18 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 	private void HandleInterstitialLeftApplication(object sender, EventArgs args) {
 		interstitial = (InterstitialAd)sender;
 		interstitialAdId = interstitial.AdUnityID;
-		Debug.Log("HandleInterstitialLeftApplication event received " + interstitialAdId);
+		MyDebug.Log("GoogleMobileAdsScript::HandleInterstitialLeftApplication =>" + interstitialAdId);
 		if(InterstitialLeftApplication != null) {
 			InterstitialLeftApplication.Invoke(interstitial.AdUnityID);
 		}
 	}
 
 	#endregion
+}
+
+public enum ErrorCode {
+	Empty_adUnitId,
+	NotRequested,
+	Downloaing,
+	SDKError
 }

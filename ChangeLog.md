@@ -3,6 +3,12 @@ Test Google Ads for Unity3D
 
 ##Change Log
 ============
+###v1.1.1
+- Minor Changes
+- Created  seprate Demo script
+- removed OnGUI and test adUnitId from script `GoogleMobileAdsScript`
+- Also placed `UserGuide.md` file in `Asset` folder
+
 ###v1.1
 - Android Support Add
 - Android SDK used API 21
