@@ -3,6 +3,11 @@ Test Google Ads for Unity3D
 
 ##Change Log
 ============
+###v1.1.2
+- Minor Bugfixing
+- Show Banner Ad is auto requeste Banner Ad if not requseted yet, but it also give error event, Now error event removes from Show Banner Ad
+- Demo Script Modified with GUILayout insted-of using rects for GUI Button
+
 ###v1.1.1
 - Minor Changes
 - Created  seprate Demo script

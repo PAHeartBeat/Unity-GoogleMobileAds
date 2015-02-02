@@ -132,9 +132,6 @@ public class GoogleMobileAdsScript : MonoBehaviour {
 			return;
 		}
 		if(!bannerViews.ContainsKey(adUnitId)) {
-			if(BannerAdFailedToLoad != null) {
-				BannerAdFailedToLoad.Invoke(adUnitId, ErrorCode.NotRequested + " - ");
-			}
 			RequestBanner(adUnitId, position);
 		} else {
 			bannerViews[adUnitId].Show();

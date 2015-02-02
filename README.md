@@ -1,10 +1,10 @@
 #GoogleAdsUnity
 Test Google Ads for Unity3D
 
-* Modified: Jan 29th, 2015
+* Modified: Feb 2nd, 2015
 * iOS SDK Version: 6.12.2
 * Android: API v21 Playservices Rev. 22
-* Current Package: v1.1
+* Current Package: v1.1.2
 
 * Please Check `ChangeLog.md` and `UserGuide.md`
 

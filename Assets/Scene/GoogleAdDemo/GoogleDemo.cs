@@ -21,7 +21,7 @@ public class GoogleDemo : MonoBehaviour {
 	// Use this for initialization
 	//void Start() {
 	//}
-	
+
 	// Update is called once per frame
 	//void Update() {
 	//}
@@ -58,86 +58,67 @@ public class GoogleDemo : MonoBehaviour {
 
 	void OnGUI() {
 		#if TESTMODE_GOOGLEADS
+		GUIStyle a = GUI.skin.button;
+		a.fixedHeight = Screen.height * 0.09f;
+		a.fixedWidth = Screen.width * 0.25f * 0.95f;
+		a.richText = true;
+		a.alignment = TextAnchor.MiddleCenter;
+		GUILayout.BeginArea(new Rect(Screen.width * 0.25f, 0, Screen.width * 0.25f, Screen.height));
+
 		// Puts some basic buttons onto the screen.
-		GUI.skin.button.fontSize = (int)(0.03f * Screen.height);
-		Rect showBannerRect = new Rect(0.1f * Screen.width, 0.15f * Screen.height,
-			                      0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(showBannerRect, "Show Banner")) {
+		if(GUILayout.Button("Show Banner")) {
 			#if UNITY_IOS
 			GoogleMobileAdsScript.Me.ShowBanner("ca-app-pub-6569756320106809/4839131600");
 			#elif UNITY_ANDROID
 			GoogleMobileAdsScript.Me.ShowBanner("ca-app-pub-6569756320106809/4263722000");
 			#endif
 		}
-
-		Rect hideBannerRect = new Rect(0.1f * Screen.width, 0.25f * Screen.height,
-			                      0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(hideBannerRect, "Hide Banner")) {
+		if(GUILayout.Button("Hide Banner")) {
 			GoogleMobileAdsScript.Me.HideBanner();
 		}
-
-
-
-		Rect requestInterstitialRect = new Rect(0.1f * Screen.width, 0.40f * Screen.height,
-			                               0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(requestInterstitialRect, "Request Interstitial 1 - Text")) {
+		if(GUILayout.Button("Request Interstitial 1 - Text")) {
 			#if UNITY_IOS
 			GoogleMobileAdsScript.Me.RequestInterstitial("ca-app-pub-6569756320106809/7792598009");
 			#elif UNITY_ANDROID
 			GoogleMobileAdsScript.Me.RequestInterstitial("ca-app-pub-6569756320106809/7217188402");
 			#endif
 		}
-
-		Rect showInterstitialRect = new Rect(0.1f * Screen.width, 0.49f * Screen.height,
-			                            0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(showInterstitialRect, "Show Interstitial 1 - Text")) {
+		if(GUILayout.Button("Show Interstitial 1 - Text")) {
 			#if UNITY_IOS
 			GoogleMobileAdsScript.Me.ShowInterstitial("ca-app-pub-6569756320106809/7792598009");
 			#elif UNITY_ANDROID
 			GoogleMobileAdsScript.Me.ShowInterstitial("ca-app-pub-6569756320106809/7217188402");
 			#endif
 		}
-
-		Rect requestInterstitialRect1 = new Rect(0.1f * Screen.width, 0.58f * Screen.height,
-			                                0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(requestInterstitialRect1, "Request Interstitial 2 - Image")) {
+		if(GUILayout.Button("Request Interstitial 2 - Image")) {
 			#if UNITY_IOS
 			GoogleMobileAdsScript.Me.RequestInterstitial("ca-app-pub-6569756320106809/9269331204");
 			#elif UNITY_ANDROID
 			GoogleMobileAdsScript.Me.RequestInterstitial("ca-app-pub-6569756320106809/5740455203");
 			#endif
 		}
-
-		Rect showInterstitialRect1 = new Rect(0.1f * Screen.width, 0.67f * Screen.height,
-			                             0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(showInterstitialRect1, "Show Interstitial 2 - Image")) {
+		if(GUILayout.Button("Show Interstitial 2 - Image")) {
 			#if UNITY_IOS
 			GoogleMobileAdsScript.Me.ShowInterstitial("ca-app-pub-6569756320106809/9269331204");
 			#elif UNITY_ANDROID
 			GoogleMobileAdsScript.Me.ShowInterstitial("ca-app-pub-6569756320106809/5740455203");
 			#endif
 		}
-
-		Rect requestInterstitialRect2 = new Rect(0.1f * Screen.width, 0.76f * Screen.height,
-			                                0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(requestInterstitialRect2, "Request Interstitial 3 - Video")) {
+		if(GUILayout.Button("Request Interstitial 3 - Video")) {
 			#if UNITY_IOS
 			GoogleMobileAdsScript.Me.RequestInterstitial("ca-app-pub-6569756320106809/1746064404");
 			#elif UNITY_ANDROID
 			GoogleMobileAdsScript.Me.RequestInterstitial("ca-app-pub-6569756320106809/8693921603");
 			#endif
 		}
-
-		Rect showInterstitialRect2 = new Rect(0.1f * Screen.width, 0.85f * Screen.height,
-			                             0.8f * Screen.width, 0.075f * Screen.height);
-		if(GUI.Button(showInterstitialRect2, "Show Interstitial 3 - Video")) {
+		if(GUILayout.Button("Show Interstitial 3 - Video")) {
 			#if UNITY_IOS
 			GoogleMobileAdsScript.Me.ShowInterstitial("ca-app-pub-6569756320106809/1746064404");
 			#elif UNITY_ANDROID
 			GoogleMobileAdsScript.Me.ShowInterstitial("ca-app-pub-6569756320106809/8693921603");
 			#endif
 		}
-
+		GUILayout.EndArea();
 		#endif
 	}
 
