@@ -48,4 +48,6 @@
 /// Shows the interstitial ad.
 - (void)show;
 
+// Pause Unity3D Activity when interstitial is preseant on screen.
+- (void)unityPause:(BOOL)shouldPause;
 @end

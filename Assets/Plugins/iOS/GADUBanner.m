@@ -6,10 +6,10 @@
 
 #import "GADUBanner.h"
 
-#import "GADAdMobExtras.h"
-#import "GADAdSize.h"
-#import "GADBannerView.h"
-#import "GADBannerViewDelegate.h"
+#import <GoogleMobileAds/GADExtras.h>
+#import <GoogleMobileAds/GADAdSize.h>
+#import <GoogleMobileAds/GADBannerView.h>
+#import <GoogleMobileAds/GADBannerViewDelegate.h>
 #import "UnityAppController.h"
 
 @interface GADUBanner ()<GADBannerViewDelegate>

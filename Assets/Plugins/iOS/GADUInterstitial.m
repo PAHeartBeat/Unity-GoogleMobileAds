@@ -6,10 +6,10 @@
 
 #import "GADUInterstitial.h"
 
-#import "GADAdMobExtras.h"
-#import "GADAdSize.h"
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
+#import <GoogleMobileAds/GADExtras.h>
+#import <GoogleMobileAds/GADAdSize.h>
+#import <GoogleMobileAds/GADInterstitial.h>
+#import <GoogleMobileAds/GADInterstitialDelegate.h>
 #import "UnityAppController.h"
 
 @interface GADUInterstitial ()<GADInterstitialDelegate>
@@ -49,11 +49,20 @@
 
 - (void)show {
   if (self.interstitial.isReady) {
+      [self unityPause:true];
     UIViewController *unityController = [GADUInterstitial unityGLViewController];
     [self.interstitial presentFromRootViewController:unityController];
   } else {
     NSLog(@"GoogleMobileAdsPlugin: Interstitial is not ready to be shown.");
   }
+}
+- (void)unityPause:(BOOL)shouldPause {
+#if UNITY_VERSION < 500
+    BOOL shouldPauseValue = shouldPause;
+#else
+    int shouldPauseValue = [shouldPause intValue];
+#endif
+    UnityPause( shouldPauseValue );
 }
 
 #pragma mark GADInterstitialDelegate implementation
@@ -86,6 +95,7 @@
   if (self.didDismissCallback) {
     self.didDismissCallback(self.interstitialClient);
   }
+  [self unityPause:false];
 }
 
 - (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
@@ -93,5 +103,4 @@
     self.willLeaveCallback(self.interstitialClient);
   }
 }
-
 @end

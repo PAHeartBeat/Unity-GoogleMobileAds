@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GADRequest.h"
+#import <GoogleMobileAds/GADRequest.h>
 
 /// Constant to pass to the addTestDevice method to getting test ads on the simulator.
 #define GADU_SIMULATOR_ID @"SIMULATOR"

@@ -3,6 +3,19 @@ Test Google Ads for Unity3D
 
 ##Change Log
 ============
+###v1.2.0
+- Modfid bellow files for GoogleAdMob iOS SDK 7.0.0 
+	- `Assets/Plugins/iOS/GADUBanner.m`
+	- `Assets/Plugins/iOS/GADUInterstitial.h`
+	- `Assets/Plugins/iOS/GADUInterstitial.m`
+	- `Assets/Plugins/iOS/GADURequest.h`
+	- `Assets/Plugins/iOS/GADURequest.h`
+- Updated `UserGuide.md`
+- This commit also need few change in GoogleAdMob iOS SDK v7.0.0 file. please read [User Guide.md from assets folder](https://github.com/PAHeartBeat/Unity-GoogleMobileAds/tree/master/Assets/UserGuide.md)
+- May be this commit will not work with AdMob iOS SDK v6.12.2
+- If you are still using Google AdMob iOS SDK 6.12.2 please use this commit  PAHeartBeat/Unity-GoogleMobileAds@f2ce9cf8bb676a1fc2ee0aa426e4cd2e7ab76502 
+- No change made for Android Platform
+
 ###v1.1.2
 - Minor Bugfixing
 - Show Banner Ad is auto requeste Banner Ad if not requseted yet, but it also give error event, Now error event removes from Show Banner Ad

@@ -2,8 +2,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GADAdMobExtras.h"
-#import "GADRequest.h"
+#import <GoogleMobileAds/GADExtras.h>
+#import <GoogleMobileAds/GADRequest.h>
 #import "GADURequest.h"
 
 @implementation GADURequest
@@ -64,7 +64,7 @@
   request.gender = self.gender;
   [request tagForChildDirectedTreatment:self.tagForChildDirectedTreatment];
   [self.extras setValue:@"1" forKey:@"unity"];
-  GADAdMobExtras *extras = [[[GADAdMobExtras alloc] init] autorelease];
+  GADExtras *extras = [[[GADExtras alloc] init] autorelease];
   extras.additionalParameters = self.extras;
   [request registerAdNetworkExtras:extras];
   return request;
