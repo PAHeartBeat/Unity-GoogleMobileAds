@@ -13,7 +13,7 @@ Test Google Ads for Unity3D
 - Updated `UserGuide.md`
 - This commit also need few change in GoogleAdMob iOS SDK v7.0.0 file. please read [User Guide.md from assets folder](https://github.com/PAHeartBeat/Unity-GoogleMobileAds/tree/master/Assets/UserGuide.md)
 - May be this commit will not work with AdMob iOS SDK v6.12.2
-- If you are still using Google AdMob iOS SDK 6.12.2 please use this commit  PAHeartBeat/Unity-GoogleMobileAds@f2ce9cf8bb676a1fc2ee0aa426e4cd2e7ab76502 
+- If you are still using Google AdMob iOS SDK 6.12.2 please use from [commit]  (https://github.com/PAHeartBeat/Unity-GoogleMobileAds@f2ce9cf8bb676a1fc2ee0aa426e4cd2e7ab76502) 
 - No change made for Android Platform
 
 ###v1.1.2
